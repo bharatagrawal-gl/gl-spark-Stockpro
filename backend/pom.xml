@@ -18,7 +18,7 @@
         <module>product-service</module>
         <module>warehouse-service</module>
         <module>purchase-service</module>
-<!--        <module>supplier-service</module>-->
+        <module>supplier-service</module>
 <!--        <module>movement-service</module>-->
 <!--        <module>alert-service</module>-->
 <!--        <module>report-service</module>-->
