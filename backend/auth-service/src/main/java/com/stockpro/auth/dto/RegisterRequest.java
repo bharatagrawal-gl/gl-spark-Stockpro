@@ -11,4 +11,5 @@ public class RegisterRequest {
     private String phone;
     private Role role;
     private String adminSecret;
+    private Long assignedWarehouseId;
 }

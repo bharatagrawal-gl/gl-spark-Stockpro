@@ -52,11 +52,12 @@ public class AuthController {
     @GetMapping("/users")
     @PreAuthorize("hasRole('ADMIN')")
     public ResponseEntity<List<UserResponse>> getAllUsers() {
+        System.out.println("====== CONTROLLER REACHED ======");
         return ResponseEntity.ok(authService.getAllUsers());
     }
 
     @GetMapping("/users/{id}")
-    @PreAuthorize("hasAnyRole('ADMIN','MANAGER')")
+    @PreAuthorize("hasRole('ADMIN')")
     public ResponseEntity<UserResponse> getUserById(@PathVariable Long id) {
         return ResponseEntity.ok(authService.getUserById(id));
     }

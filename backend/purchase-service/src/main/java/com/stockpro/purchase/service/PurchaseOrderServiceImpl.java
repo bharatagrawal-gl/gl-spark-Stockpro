@@ -41,12 +41,20 @@ public class PurchaseOrderServiceImpl implements PurchaseOrderService {
             throw new RuntimeException("Purchase order must have at least one item.");
         }
 
+        java.math.BigDecimal totalValue = request.getItems().stream()
+                .map(item -> item.getUnitPrice().multiply(new java.math.BigDecimal(item.getQuantityOrdered())))
+                .reduce(java.math.BigDecimal.ZERO, java.math.BigDecimal::add);
+
+        PoStatus initialStatus = totalValue.compareTo(new java.math.BigDecimal("50000")) > 0
+                ? PoStatus.PENDING_APPROVAL
+                : PoStatus.DRAFT;
+
         PurchaseOrder po = PurchaseOrder.builder()
                 .supplierId(request.getSupplierId())
                 .orderedBy(request.getOrderedBy())
                 .notes(request.getNotes())
                 .expectedDate(request.getExpectedDate())
-                .status(PoStatus.DRAFT)
+                .status(initialStatus)
                 .build();
 
         // Map items — link back to PO
@@ -97,9 +105,9 @@ public class PurchaseOrderServiceImpl implements PurchaseOrderService {
     public PurchaseOrderResponse approvePurchaseOrder(Long id, ApproveRequest request) {
         PurchaseOrder po = findPoOrThrow(id);
 
-        if (po.getStatus() != PoStatus.DRAFT) {
+        if (po.getStatus() != PoStatus.DRAFT && po.getStatus() != PoStatus.PENDING_APPROVAL) {
             throw new InvalidStatusTransitionException(
-                    "Only DRAFT orders can be approved. Current status: " + po.getStatus());
+                    "Only DRAFT or PENDING_APPROVAL orders can be approved. Current status: " + po.getStatus());
         }
 
         po.setStatus(PoStatus.APPROVED);

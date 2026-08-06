@@ -25,31 +25,31 @@ public class ProductController {
     }
 
     @GetMapping("/{id}")
-    @PreAuthorize("hasAnyRole('ADMIN','MANAGER','STAFF')")
+    @PreAuthorize("hasAnyRole('ADMIN','MANAGER','STAFF','AUDITOR')")
     public ResponseEntity<ProductResponse> getById(@PathVariable Long id) {
         return ResponseEntity.ok(productService.getById(id));
     }
 
     @GetMapping("/sku/{sku}")
-    @PreAuthorize("hasAnyRole('ADMIN','MANAGER','STAFF')")
+    @PreAuthorize("hasAnyRole('ADMIN','MANAGER','STAFF','AUDITOR')")
     public ResponseEntity<ProductResponse> getBySku(@PathVariable String sku) {
         return ResponseEntity.ok(productService.getBySku(sku));
     }
 
     @GetMapping
-    @PreAuthorize("hasAnyRole('ADMIN','MANAGER','STAFF')")
+    @PreAuthorize("hasAnyRole('ADMIN','MANAGER','STAFF','AUDITOR')")
     public ResponseEntity<List<ProductResponse>> getAll() {
         return ResponseEntity.ok(productService.getAll());
     }
 
     @GetMapping("/active")
-    @PreAuthorize("hasAnyRole('ADMIN','MANAGER','STAFF')")
+    @PreAuthorize("hasAnyRole('ADMIN','MANAGER','STAFF','AUDITOR')")
     public ResponseEntity<List<ProductResponse>> getAllActive() {
         return ResponseEntity.ok(productService.getAllActive());
     }
 
     @GetMapping("/search")
-    @PreAuthorize("hasAnyRole('ADMIN','MANAGER','STAFF')")
+    @PreAuthorize("hasAnyRole('ADMIN','MANAGER','STAFF','AUDITOR')")
     public ResponseEntity<List<ProductResponse>> search(@RequestParam String name) {
         return ResponseEntity.ok(productService.searchByName(name));
     }

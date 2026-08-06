@@ -1,0 +1,45 @@
+.loading-state {
+  display: flex;
+  justify-content: center;
+  padding: 56px 24px;
+}
+
+.report-grid {
+  display: grid;
+  gap: 20px;
+}
+
+.summary-grid {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 16px;
+}
+
+.summary-card {
+  padding: 20px;
+}
+
+.summary-card span {
+  display: block;
+  color: #6b7280;
+  margin-bottom: 8px;
+}
+
+.summary-card strong {
+  font-size: 28px;
+  color: #111827;
+}
+
+.summary-card.danger strong {
+  color: #c62828;
+}
+
+.table-title {
+  padding: 20px 20px 0;
+  font-size: 18px;
+  font-weight: 600;
+}
+
+.report-grid table {
+  margin-top: 12px;
+}

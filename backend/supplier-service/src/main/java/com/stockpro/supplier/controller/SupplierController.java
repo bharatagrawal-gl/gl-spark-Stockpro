@@ -25,19 +25,19 @@ public class SupplierController {
     }
 
     @GetMapping("/{id}")
-    @PreAuthorize("hasAnyRole('ADMIN','MANAGER','STAFF')")
+    @PreAuthorize("hasAnyRole('ADMIN','MANAGER','STAFF','AUDITOR')")
     public ResponseEntity<SupplierResponse> getById(@PathVariable Long id) {
         return ResponseEntity.ok(supplierService.getById(id));
     }
 
     @GetMapping
-    @PreAuthorize("hasAnyRole('ADMIN','MANAGER','STAFF')")
+    @PreAuthorize("hasAnyRole('ADMIN','MANAGER','STAFF','AUDITOR')")
     public ResponseEntity<List<SupplierResponse>> getAll() {
         return ResponseEntity.ok(supplierService.getAll());
     }
 
     @GetMapping("/active")
-    @PreAuthorize("hasAnyRole('ADMIN','MANAGER','STAFF')")
+    @PreAuthorize("hasAnyRole('ADMIN','MANAGER','STAFF','AUDITOR')")
     public ResponseEntity<List<SupplierResponse>> getAllActive() {
         return ResponseEntity.ok(supplierService.getAllActive());
     }

@@ -1,0 +1,15 @@
+.loading-state {
+  display: flex;
+  justify-content: center;
+  padding: 48px 24px;
+}
+
+.table-shell {
+  padding: 20px;
+}
+
+.empty-state {
+  padding-top: 24px;
+  text-align: center;
+  color: #6b7280;
+}

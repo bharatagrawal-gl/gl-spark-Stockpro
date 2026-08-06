@@ -1,0 +1,142 @@
+* { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  font-family: "Segoe UI", "Calibri", "Trebuchet MS", sans-serif;
+  background: linear-gradient(160deg, #f7fafc 0%, #edf7f5 100%);
+  color: #0f172a;
+}
+
+.page-container {
+  padding: 32px;
+}
+
+.page-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 24px;
+}
+
+.page-header h1 {
+  font-size: 24px;
+  font-weight: 600;
+  color: #0f172a;
+  margin: 0;
+}
+
+.page-header p {
+  font-size: 13px;
+  color: #64748b;
+  margin: 4px 0 0;
+}
+
+.mat-card-table {
+  width: 100%;
+  border-radius: 8px;
+  overflow: hidden;
+}
+
+.status-chip {
+  font-size: 11px;
+  font-weight: 600;
+  padding: 4px 10px;
+  border-radius: 12px;
+  display: inline-block;
+}
+
+.status-chip.active { background: #e8f5e9; color: #2e7d32; }
+.status-chip.inactive { background: #ffebee; color: #c62828; }
+.status-chip.draft { background: #f5f5f5; color: #616161; }
+.status-chip.approved { background: #e3f2fd; color: #1565c0; }
+.status-chip.received { background: #e8f5e9; color: #2e7d32; }
+.status-chip.partially_received { background: #fff8e1; color: #f57f17; }
+.status-chip.cancelled { background: #ffebee; color: #c62828; }
+.status-chip.stock_in { background: #e8f5e9; color: #2e7d32; }
+.status-chip.stock_out { background: #ffebee; color: #c62828; }
+.status-chip.transfer { background: #e3f2fd; color: #1565c0; }
+.status-chip.low_stock { background: #ffebee; color: #c62828; }
+.status-chip.po_overdue { background: #fff8e1; color: #f57f17; }
+.status-chip.manual { background: #ecfeff; color: #0f766e; }
+.status-chip.admin { background: #e0f2fe; color: #075985; }
+.status-chip.manager { background: #ecfeff; color: #0f766e; }
+.status-chip.staff { background: #f5f5f5; color: #616161; }
+
+.error-banner {
+  background: #ffebee;
+  border: 1px solid #ef9a9a;
+  color: #c62828;
+  padding: 12px 16px;
+  border-radius: 6px;
+  margin-bottom: 16px;
+  font-size: 13px;
+}
+
+.success-banner {
+  background: #e8f5e9;
+  border: 1px solid #a5d6a7;
+  color: #2e7d32;
+  padding: 12px 16px;
+  border-radius: 6px;
+  margin-bottom: 16px;
+  font-size: 13px;
+}
+
+.MuiOutlinedInput-notchedOutline {
+  border-color: rgba(15, 23, 42, 0.18) !important;
+}
+
+.MuiPaper-root.MuiCard-root {
+  border: 1px solid rgba(15, 23, 42, 0.08);
+  box-shadow: 0 12px 24px rgba(15, 23, 42, 0.08);
+}
+
+.dialog-form {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 16px;
+  padding-top: 8px;
+}
+
+.dialog-form .full-span {
+  grid-column: 1 / -1;
+}
+
+.items-header,
+.item-row {
+  display: grid;
+  gap: 12px;
+  align-items: center;
+}
+
+.items-header {
+  grid-template-columns: 1fr auto;
+  margin-bottom: 12px;
+}
+
+.items-header h3 { margin: 0; }
+
+.item-row {
+  grid-template-columns: 1.5fr 1.2fr 0.8fr 0.8fr auto;
+  margin-bottom: 12px;
+}
+
+@media (max-width: 720px) {
+  .dialog-form {
+    grid-template-columns: 1fr;
+  }
+  .item-row {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* Remove up/down scroll arrows from number inputs globally */
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+input[type=number] {
+  -moz-appearance: textfield;
+}

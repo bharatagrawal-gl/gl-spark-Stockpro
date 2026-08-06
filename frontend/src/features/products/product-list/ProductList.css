@@ -1,0 +1,49 @@
+.toolbar {
+  display: flex;
+  gap: 16px;
+  padding: 20px 20px 0;
+  flex-wrap: wrap;
+}
+
+.toolbar .field {
+  min-width: 220px;
+  flex: 1 1 240px;
+}
+
+.loading-state {
+  display: flex;
+  justify-content: center;
+  padding: 48px 24px;
+}
+
+.table-shell {
+  padding: 0 20px 20px;
+}
+
+.primary-cell {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.primary-cell strong {
+  color: #1f2937;
+}
+
+.primary-cell span {
+  color: #6b7280;
+  font-size: 12px;
+}
+
+.row-actions {
+  display: flex;
+  gap: 8px;
+  justify-content: flex-end;
+  align-items: center;
+}
+
+.empty-state {
+  padding: 24px 8px 8px;
+  color: #6b7280;
+  text-align: center;
+}

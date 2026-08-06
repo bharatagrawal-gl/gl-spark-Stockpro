@@ -44,7 +44,7 @@ public class MovementController {
     }
 
     @GetMapping
-    @PreAuthorize("hasAnyRole('ADMIN','MANAGER')")
+    @PreAuthorize("hasAnyRole('ADMIN','MANAGER','STAFF','AUDITOR')")
     public ResponseEntity<List<MovementResponse>> getAll() {
         return ResponseEntity.ok(movementService.getAll());
     }
@@ -62,19 +62,19 @@ public class MovementController {
     }
 
     @GetMapping("/type/{type}")
-    @PreAuthorize("hasAnyRole('ADMIN','MANAGER')")
+    @PreAuthorize("hasAnyRole('ADMIN','MANAGER','STAFF','AUDITOR')")
     public ResponseEntity<List<MovementResponse>> getByType(@PathVariable MovementType type) {
         return ResponseEntity.ok(movementService.getByType(type));
     }
 
     @GetMapping("/user/{userId}")
-    @PreAuthorize("hasAnyRole('ADMIN','MANAGER')")
+    @PreAuthorize("hasAnyRole('ADMIN','MANAGER','STAFF','AUDITOR')")
     public ResponseEntity<List<MovementResponse>> getByUser(@PathVariable Long userId) {
         return ResponseEntity.ok(movementService.getByPerformedBy(userId));
     }
 
     @GetMapping("/reference")
-    @PreAuthorize("hasAnyRole('ADMIN','MANAGER')")
+    @PreAuthorize("hasAnyRole('ADMIN','MANAGER','STAFF','AUDITOR')")
     public ResponseEntity<List<MovementResponse>> getByReference(
             @RequestParam Long referenceId,
             @RequestParam String referenceType) {
@@ -82,7 +82,7 @@ public class MovementController {
     }
 
     @GetMapping("/daterange")
-    @PreAuthorize("hasAnyRole('ADMIN','MANAGER')")
+    @PreAuthorize("hasAnyRole('ADMIN','MANAGER','STAFF','AUDITOR')")
     public ResponseEntity<List<MovementResponse>> getByDateRange(
             @RequestParam @DateTimeFormat(iso = DateTimeFormat.ISO.DATE_TIME) LocalDateTime from,
             @RequestParam @DateTimeFormat(iso = DateTimeFormat.ISO.DATE_TIME) LocalDateTime to) {

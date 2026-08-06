@@ -27,33 +27,33 @@ public class PurchaseOrderController {
     }
 
     @GetMapping("/{id}")
-    @PreAuthorize("hasAnyRole('ADMIN','MANAGER','STAFF')")
+    @PreAuthorize("hasAnyRole('ADMIN','MANAGER','STAFF','AUDITOR')")
     public ResponseEntity<PurchaseOrderResponse> getById(@PathVariable Long id) {
         return ResponseEntity.ok(purchaseOrderService.getPurchaseOrderById(id));
     }
 
     @GetMapping
-    @PreAuthorize("hasAnyRole('ADMIN','MANAGER')")
+    @PreAuthorize("hasAnyRole('ADMIN','MANAGER','AUDITOR','STAFF')")
     public ResponseEntity<List<PurchaseOrderResponse>> getAll() {
         return ResponseEntity.ok(purchaseOrderService.getAllPurchaseOrders());
     }
 
     @GetMapping("/status/{status}")
-    @PreAuthorize("hasAnyRole('ADMIN','MANAGER')")
+    @PreAuthorize("hasAnyRole('ADMIN','MANAGER','AUDITOR','STAFF')")
     public ResponseEntity<List<PurchaseOrderResponse>> getByStatus(
             @PathVariable PoStatus status) {
         return ResponseEntity.ok(purchaseOrderService.getByStatus(status));
     }
 
     @GetMapping("/supplier/{supplierId}")
-    @PreAuthorize("hasAnyRole('ADMIN','MANAGER')")
+    @PreAuthorize("hasAnyRole('ADMIN','MANAGER','AUDITOR','STAFF')")
     public ResponseEntity<List<PurchaseOrderResponse>> getBySupplier(
             @PathVariable Long supplierId) {
         return ResponseEntity.ok(purchaseOrderService.getBySupplier(supplierId));
     }
 
     @PutMapping("/{id}/approve")
-    @PreAuthorize("hasAnyRole('ADMIN','MANAGER')")
+    @PreAuthorize("hasRole('ADMIN')")
     public ResponseEntity<PurchaseOrderResponse> approve(
             @PathVariable Long id,
             @RequestBody ApproveRequest request) {

@@ -15,5 +15,6 @@ public class UserResponse {
     private String phone;
     private Role role;
     private boolean isActive;
+    private Long assignedWarehouseId;
     private LocalDateTime createdAt;
 }

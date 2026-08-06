@@ -1,0 +1,44 @@
+.toolbar {
+  padding: 20px 20px 0;
+}
+
+.toolbar .field {
+  min-width: 220px;
+}
+
+.loading-state {
+  display: flex;
+  justify-content: center;
+  padding: 48px 24px;
+}
+
+.table-shell {
+  padding: 0 20px 20px;
+  overflow-x: auto;
+}
+
+.primary-cell,
+.item-list {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.primary-cell span,
+.item-list span {
+  color: #6b7280;
+  font-size: 12px;
+}
+
+.row-actions {
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+  justify-content: flex-end;
+}
+
+.empty-state {
+  padding: 24px 8px 8px;
+  color: #6b7280;
+  text-align: center;
+}

@@ -25,11 +25,17 @@ public class JwtUtil {
         return Keys.hmacShaKeyFor(keyBytes);
     }
 
-    public String generateToken(Long userId, String email, String role) {
-        return Jwts.builder()
+    public String generateToken(Long userId, String email, String role, Long assignedWarehouseId) {
+        var builder = Jwts.builder()
                 .setSubject(email)
                 .claim("userId", userId)
-                .claim("role", role)
+                .claim("role", role);
+        
+        if (assignedWarehouseId != null) {
+            builder.claim("assignedWarehouseId", assignedWarehouseId);
+        }
+
+        return builder
                 .setIssuedAt(new Date())
                 .setExpiration(new Date(System.currentTimeMillis() + expiration))
                 .signWith(getSigningKey(), SignatureAlgorithm.HS256)

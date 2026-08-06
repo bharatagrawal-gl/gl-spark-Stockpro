@@ -21,7 +21,7 @@
         <module>supplier-service</module>
         <module>movement-service</module>
         <module>alert-service</module>
-<!--        <module>report-service</module>-->
+        <module>report-service</module>
 <!--        <module>stockpro-web</module>-->
     </modules>
 

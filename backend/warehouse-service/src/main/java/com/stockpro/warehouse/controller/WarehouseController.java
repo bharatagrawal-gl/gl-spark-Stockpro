@@ -25,24 +25,24 @@ public class WarehouseController {
         return ResponseEntity.status(HttpStatus.CREATED).body(warehouseService.createWarehouse(request));
     }
     @GetMapping("/stock")
-    @PreAuthorize("hasAnyRole('ADMIN','MANAGER','STAFF')")
+    @PreAuthorize("hasAnyRole('ADMIN','MANAGER','STAFF','AUDITOR')")
     public ResponseEntity<List<StockLevelResponse>> getAllStock() {
         return ResponseEntity.ok(warehouseService.getAllStock());
     }
     @GetMapping("/{id}")
-    @PreAuthorize("hasAnyRole('ADMIN','MANAGER','STAFF')")
+    @PreAuthorize("hasAnyRole('ADMIN','MANAGER','STAFF','AUDITOR')")
     public ResponseEntity<WarehouseResponse> getWarehouseById(@PathVariable Long id) {
         return ResponseEntity.ok(warehouseService.getWarehouseById(id));
     }
 
     @GetMapping
-    @PreAuthorize("hasAnyRole('ADMIN','MANAGER','STAFF')")
+    @PreAuthorize("hasAnyRole('ADMIN','MANAGER','STAFF','AUDITOR')")
     public ResponseEntity<List<WarehouseResponse>> getAllWarehouses() {
         return ResponseEntity.ok(warehouseService.getAllWarehouses());
     }
 
     @GetMapping("/active")
-    @PreAuthorize("hasAnyRole('ADMIN','MANAGER','STAFF')")
+    @PreAuthorize("hasAnyRole('ADMIN','MANAGER','STAFF','AUDITOR')")
     public ResponseEntity<List<WarehouseResponse>> getActiveWarehouses() {
         return ResponseEntity.ok(warehouseService.getActiveWarehouses());
     }
@@ -71,26 +71,26 @@ public class WarehouseController {
     // ─── Stock Endpoints ──────────────────────────────────────────────────────
 
     @GetMapping("/{warehouseId}/stock/{productId}")
-    @PreAuthorize("hasAnyRole('ADMIN','MANAGER','STAFF')")
+    @PreAuthorize("hasAnyRole('ADMIN','MANAGER','STAFF','AUDITOR')")
     public ResponseEntity<StockLevelResponse> getStockLevel(@PathVariable Long warehouseId,
                                                             @PathVariable Long productId) {
         return ResponseEntity.ok(warehouseService.getStockLevel(warehouseId, productId));
     }
 
     @GetMapping("/{warehouseId}/stock")
-    @PreAuthorize("hasAnyRole('ADMIN','MANAGER','STAFF')")
+    @PreAuthorize("hasAnyRole('ADMIN','MANAGER','STAFF','AUDITOR')")
     public ResponseEntity<List<StockLevelResponse>> getStockByWarehouse(@PathVariable Long warehouseId) {
         return ResponseEntity.ok(warehouseService.getStockByWarehouse(warehouseId));
     }
 
     @GetMapping("/stock/product/{productId}")
-    @PreAuthorize("hasAnyRole('ADMIN','MANAGER','STAFF')")
+    @PreAuthorize("hasAnyRole('ADMIN','MANAGER','STAFF','AUDITOR')")
     public ResponseEntity<List<StockLevelResponse>> getStockByProduct(@PathVariable Long productId) {
         return ResponseEntity.ok(warehouseService.getStockByProduct(productId));
     }
 
     @PostMapping("/stock/add")
-    @PreAuthorize("hasAnyRole('ADMIN','MANAGER','STAFF')")
+    @PreAuthorize("hasAnyRole('ADMIN','MANAGER')")
     public ResponseEntity<StockLevelResponse> addStock(@RequestBody StockUpdateRequest request) {
         return ResponseEntity.ok(warehouseService.addStock(request));
     }

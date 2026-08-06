@@ -16,31 +16,31 @@ public class AlertController {
     private final AlertService alertService;
 
     @GetMapping
-    @PreAuthorize("hasAnyRole('ADMIN','MANAGER')")
+    @PreAuthorize("hasAnyRole('ADMIN','MANAGER','STAFF','AUDITOR')")
     public ResponseEntity<List<AlertResponse>> getAll() {
         return ResponseEntity.ok(alertService.getAll());
     }
 
     @GetMapping("/{id}")
-    @PreAuthorize("hasAnyRole('ADMIN','MANAGER')")
+    @PreAuthorize("hasAnyRole('ADMIN','MANAGER','STAFF','AUDITOR')")
     public ResponseEntity<AlertResponse> getById(@PathVariable Long id) {
         return ResponseEntity.ok(alertService.getById(id));
     }
 
     @GetMapping("/unread")
-    @PreAuthorize("hasAnyRole('ADMIN','MANAGER')")
+    @PreAuthorize("hasAnyRole('ADMIN','MANAGER','STAFF','AUDITOR')")
     public ResponseEntity<List<AlertResponse>> getUnread() {
         return ResponseEntity.ok(alertService.getUnread());
     }
 
     @GetMapping("/type/{alertType}")
-    @PreAuthorize("hasAnyRole('ADMIN','MANAGER')")
+    @PreAuthorize("hasAnyRole('ADMIN','MANAGER','STAFF','AUDITOR')")
     public ResponseEntity<List<AlertResponse>> getByType(@PathVariable String alertType) {
         return ResponseEntity.ok(alertService.getByType(alertType));
     }
 
     @PutMapping("/{id}/read")
-    @PreAuthorize("hasAnyRole('ADMIN','MANAGER')")
+    @PreAuthorize("hasAnyRole('ADMIN','MANAGER','STAFF')")
     public ResponseEntity<AlertResponse> markAsRead(@PathVariable Long id) {
         return ResponseEntity.ok(alertService.markAsRead(id));
     }

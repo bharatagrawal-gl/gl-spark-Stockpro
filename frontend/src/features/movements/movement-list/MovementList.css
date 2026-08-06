@@ -1,0 +1,54 @@
+.page-container {
+  --surface: rgba(255, 255, 255, 0.72);
+  --border: rgba(15, 23, 42, 0.08);
+  --text: #0f172a;
+  --muted: #64748b;
+  --shadow: 0 16px 32px rgba(15, 23, 42, 0.08);
+  font-family: "Segoe UI", "Calibri", "Trebuchet MS", sans-serif;
+}
+
+.page-container .page-header h1 {
+  color: var(--text);
+  letter-spacing: 0.2px;
+}
+
+.page-container .page-header p {
+  color: var(--muted);
+}
+
+.page-container .MuiCard-root {
+  border: 1px solid var(--border);
+  border-radius: 14px;
+  box-shadow: var(--shadow);
+  background: var(--surface);
+  backdrop-filter: blur(4px);
+}
+
+.toolbar {
+  display: flex;
+  gap: 16px;
+  padding: 20px 20px 0;
+  flex-wrap: wrap;
+}
+
+.toolbar .field {
+  min-width: 220px;
+  flex: 1 1 220px;
+}
+
+.loading-state {
+  display: flex;
+  justify-content: center;
+  padding: 48px 24px;
+}
+
+.table-shell {
+  padding: 0 20px 20px;
+  overflow-x: auto;
+}
+
+.empty-state {
+  padding: 24px 8px 8px;
+  color: #6b7280;
+  text-align: center;
+}

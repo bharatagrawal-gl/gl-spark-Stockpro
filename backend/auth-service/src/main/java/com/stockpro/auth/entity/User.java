@@ -36,6 +36,8 @@ public class User {
     @Column(nullable = false)
     private Role role;
 
+    private Long assignedWarehouseId;
+
     @Builder.Default
     private boolean isActive = true;
 

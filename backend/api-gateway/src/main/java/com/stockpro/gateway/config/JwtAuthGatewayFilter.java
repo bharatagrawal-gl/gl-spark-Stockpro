@@ -79,10 +79,10 @@ public class JwtAuthGatewayFilter implements GatewayFilter {
                 return writeError(exchange, HttpStatus.UNAUTHORIZED, "Token has expired");
             }
 
-            // Extract claims
             String email  = claims.getSubject();
             String role   = claims.get("role", String.class);
             String userId = String.valueOf(claims.get("userId"));
+            String assignedWarehouseId = claims.get("assignedWarehouseId") != null ? String.valueOf(claims.get("assignedWarehouseId")) : null;
 
             log.debug("Gateway auth OK — email={}, role={}, path={}", email, role, path);
 
@@ -94,6 +94,9 @@ public class JwtAuthGatewayFilter implements GatewayFilter {
                         headers.set("X-Auth-Email",  email);
                         headers.set("X-Auth-Role",   role);
                         headers.set("X-Auth-UserId", userId);
+                        if (assignedWarehouseId != null) {
+                            headers.set("X-Auth-WarehouseId", assignedWarehouseId);
+                        }
                     }))
                     .build();
 

@@ -1,0 +1,120 @@
+.sidenav-container {
+  height: 100vh;
+  font-family: "Segoe UI", "Calibri", "Trebuchet MS", sans-serif;
+  display: flex;
+}
+
+.sidenav {
+  width: 240px;
+  min-width: 240px;
+  background: linear-gradient(180deg, #0f172a 0%, #164e63 58%, #0f766e 100%);
+  color: white;
+  display: flex;
+  flex-direction: column;
+  border-right: none;
+  height: 100vh;
+}
+
+.brand {
+  padding: 24px 20px 20px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.brand h1 {
+  font-size: 22px;
+  font-weight: 700;
+  margin: 0 0 4px;
+  color: white;
+}
+
+.brand p {
+  font-size: 13px;
+  color: rgba(255, 255, 255, 0.7);
+  margin: 0 0 8px;
+}
+
+.nav-menu {
+  flex: 1;
+  padding: 12px 0;
+  overflow-y: auto;
+  display: flex;
+  flex-direction: column;
+}
+
+.nav-item {
+  display: flex !important;
+  align-items: center;
+  gap: 12px;
+  width: 100%;
+  padding: 10px 20px !important;
+  color: rgba(255, 255, 255, 0.75) !important;
+  border-radius: 0 !important;
+  text-align: left !important;
+  justify-content: flex-start !important;
+  font-size: 14px !important;
+  font-weight: 500 !important;
+  position: relative;
+  text-decoration: none;
+  cursor: pointer;
+  background: transparent;
+  border: none;
+  box-sizing: border-box;
+}
+
+.nav-item .nav-icon {
+  font-size: 20px;
+  width: 20px;
+  height: 20px;
+}
+
+.nav-item:hover {
+  background: rgba(255, 255, 255, 0.1) !important;
+  color: white !important;
+}
+
+.nav-item.active-link {
+  background: rgba(255, 255, 255, 0.15) !important;
+  color: white !important;
+  border-left: 3px solid #99f6e4;
+}
+
+.nav-badge {
+  margin-left: auto;
+  min-width: 20px;
+  height: 20px;
+  padding: 0 6px;
+  border-radius: 999px;
+  background: rgba(239, 68, 68, 0.92);
+  color: #fff;
+  font-size: 11px;
+  font-weight: 700;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  line-height: 1;
+  box-shadow: 0 2px 8px rgba(239, 68, 68, 0.35);
+}
+
+.signout {
+  padding: 12px;
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.signout-btn {
+  width: 100%;
+  color: rgba(255, 255, 255, 0.7) !important;
+  justify-content: flex-start !important;
+  gap: 12px;
+}
+
+.signout-btn:hover {
+  color: white !important;
+  background: rgba(255, 255, 255, 0.1) !important;
+}
+
+.main-content {
+  flex: 1;
+  background: linear-gradient(160deg, #f7fafc 0%, #edf7f5 100%);
+  overflow-y: auto;
+  height: 100vh;
+}

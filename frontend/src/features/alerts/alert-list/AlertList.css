@@ -1,0 +1,48 @@
+.loading-state {
+  display: flex;
+  justify-content: center;
+  padding: 48px 24px;
+}
+
+.alert-list {
+  display: grid;
+  gap: 16px;
+}
+
+.alert-card {
+  border-radius: 14px !important;
+  padding: 20px;
+}
+
+.alert-card.unread {
+  border-left: 4px solid #c62828;
+}
+
+.alert-content {
+  display: flex;
+  justify-content: space-between;
+  gap: 16px;
+  align-items: center;
+}
+
+.alert-main {
+  display: grid;
+  gap: 8px;
+}
+
+.alert-main p {
+  margin: 0;
+  font-size: 15px;
+  color: #1f2937;
+}
+
+.alert-main span {
+  color: #6b7280;
+  font-size: 12px;
+}
+
+.empty-state {
+  color: #6b7280;
+  text-align: center;
+  padding: 24px;
+}
